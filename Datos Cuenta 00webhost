@@ -12,3 +12,9 @@ FTP host name:	tuportalpersonal.netne.net
 FTP user name:	a1940204
 FTP password:	FTPTPP123
 Folder to upload files:	public_html
+
+MySQL:
+Base de datos: a1940204_TPP	
+Usuario de MySQL: a1940204_admin	
+Host MySQL: mysql8.000webhost.com
+Password: admin123
