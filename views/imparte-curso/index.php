@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\CursoSearch */
+/* @var $searchModel app\models\ImparteCursoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cursos';
+$this->title = 'Imparte Cursos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="curso-index">
+<div class="imparte-curso-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Crear Curso', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Imparte Curso', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,12 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'idCurso',
-            'Nombre',
-            'Descripcion',
-            'FechaInicio',
-            'FechaFin',
-            // 'Horas',
+            'Curso_idCurso',
+            'Usuarios_nombreUsuario',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
