@@ -12,6 +12,7 @@ use Yii;
  * @property string $nombre
  * @property string $apellidos
  * @property string $tipo
+ * @property string $contrasena
  *
  * @property AlumnoCurso[] $alumnoCursos
  * @property Curso[] $cursoIdCursos
@@ -33,8 +34,8 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombreUsuario', 'correo', 'tipo'], 'required'],
-            [['nombreUsuario', 'correo', 'nombre', 'apellidos', 'tipo'], 'string', 'max' => 45]
+            [['nombreUsuario', 'correo', 'tipo', 'contrasena'], 'required'],
+            [['nombreUsuario', 'correo', 'nombre', 'apellidos', 'tipo', 'contrasena'], 'string', 'max' => 45]
         ];
     }
 
@@ -49,6 +50,7 @@ class Usuario extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
             'apellidos' => 'Apellidos',
             'tipo' => 'Tipo',
+            'contrasena' => 'Contrasena',
         ];
     }
 

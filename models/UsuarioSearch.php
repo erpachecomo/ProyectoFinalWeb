@@ -18,7 +18,7 @@ class UsuarioSearch extends Usuario
     public function rules()
     {
         return [
-            [['nombreUsuario', 'correo', 'nombre', 'apellidos', 'tipo'], 'safe'],
+            [['nombreUsuario', 'correo', 'nombre', 'apellidos', 'tipo', 'contrasena'], 'safe'],
         ];
     }
 
@@ -58,7 +58,8 @@ class UsuarioSearch extends Usuario
             ->andFilterWhere(['like', 'correo', $this->correo])
             ->andFilterWhere(['like', 'nombre', $this->nombre])
             ->andFilterWhere(['like', 'apellidos', $this->apellidos])
-            ->andFilterWhere(['like', 'tipo', $this->tipo]);
+            ->andFilterWhere(['like', 'tipo', $this->tipo])
+            ->andFilterWhere(['like', 'contrasena', $this->contrasena]);
 
         return $dataProvider;
     }
