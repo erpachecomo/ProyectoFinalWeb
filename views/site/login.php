@@ -10,10 +10,14 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Accesar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Por favor ingresa siguientes datos para accesar:</p>
+    <p>Por favor llene los siguientes campos para acceder:</p>
+
+
 
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
@@ -24,17 +28,17 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-        <?= $form->field($model, 'username') ?>
+        <?= $form->field($model, 'usuario') ?>
 
-        <?= $form->field($model, 'password')->passwordInput() ?>
+        <?= $form->field($model, 'contrasena')->passwordInput() ?>
 
-        <?= $form->field($model, 'rememberMe')->checkbox([
+        <?= $form->field($model, 'recordar')->checkbox([
             'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
         ]) ?>
 
         <div class="form-group">
             <div class="col-lg-offset-1 col-lg-11">
-                <?= Html::submitButton('Accesar al portal', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                <?= Html::submitButton('Accesar', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
         </div>
 
@@ -42,6 +46,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="col-lg-offset-1" style="color:#999;">
         You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+        
     </div>
 </div>
