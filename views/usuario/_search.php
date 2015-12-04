@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'tipo') ?>
 
-    <?php // echo $form->field($model, 'contrasena') ?>
+    <?php echo $form->field($model, 'contrasena') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
