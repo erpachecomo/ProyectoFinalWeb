@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    background-color:beige 
 }
 
 .wrap {
@@ -8,6 +9,7 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+
 }
 
 .wrap > .container {
@@ -34,6 +36,7 @@ body {
 .not-set {
     color: #c55;
     font-style: italic;
+
 }
 
 /* add sorting icons to gridview sort links */
@@ -88,4 +91,7 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+}
+#navbar-inverse{
+    color: red;
 }
