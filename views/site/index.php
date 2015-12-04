@@ -11,7 +11,7 @@ $this->title = 'TuPortalPersonal';
 
         <p class="lead">Plataforma para control de tareas escolares.</p>
 
-        <nav><img src="logo.png"></nav>
+        
 
         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
