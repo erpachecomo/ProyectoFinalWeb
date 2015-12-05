@@ -11,8 +11,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        This is the About page. You may modify the following file to customize its content:
+      Este es el proyecto para las unidades 5 y 6 de la materia de Programacion Web del Instituo Tecnologico de Tepic
     </p>
+    <h2>Integrantes:</h2>
+    <ul>
+    		<li>Ernesto Antonio Especiano Parada</li>
+    		<li>Armando Antonio Navarro Flores</li>
+    		<li>Juan Jose Nolasco Meza</li>
+    		<li>Ernesto Pacheco Morelos</li>
+    </ul>
 
     <code><?= __FILE__ ?></code>
 </div>
