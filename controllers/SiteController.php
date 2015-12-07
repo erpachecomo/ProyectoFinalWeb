@@ -8,30 +8,74 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\User;
+
 
 class SiteController extends Controller
 {
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+        'access' => [
+            'class' => AccessControl::className(),
+            'only' => ['logout', 'admin','maestro','estudiante'],
+            'rules' => [
+                [
+                    //El administrador tiene permisos sobre las siguientes acciones
+                    'actions' => ['logout', 'admin'],
+                    //Esta propiedad establece que tiene permisos
+                    'allow' => true,
+                    //Usuarios autenticados, el signo ? es para invitados
+                    'roles' => ['@'],
+                    //Este método nos permite crear un filtro sobre la identidad del usuario
+                    //y así establecer si tiene permisos o n
+                    'matchCallback' => function ($rule, $action) {
+                        //Llamada al método que comprueba si es un administrador
+                        return User::isUserAdmin(Yii::$app->user->identity->username);
+                    },
                 ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
+
+                [
+                    //El administrador tiene permisos sobre las siguientes acciones
+                    'actions' => ['logout', 'maestro'],
+                    //Esta propiedad establece que tiene permisos
+                    'allow' => true,
+                    //Usuarios autenticados, el signo ? es para invitados
+                    'roles' => ['@'],
+                    //Este método nos permite crear un filtro sobre la identidad del usuario
+                    //y así establecer si tiene permisos o n
+                    'matchCallback' => function ($rule, $action) {
+                        //Llamada al método que comprueba si es un administrador
+                        return User::isUserMaestro(Yii::$app->user->identity->username);
+                    },
                 ],
+
+                [
+                   //Los usuarios simples tienen permisos sobre las siguientes acciones
+                   'actions' => ['logout', 'estudiante'],
+                   //Esta propiedad establece que tiene permisos
+                   'allow' => true,
+                   //Usuarios autenticados, el signo ? es para invitados
+                   'roles' => ['@'],
+                   //Este método nos permite crear un filtro sobre la identidad del usuario
+                   //y así establecer si tiene permisos o no
+                   'matchCallback' => function ($rule, $action) {
+                      //Llamada al método que comprueba si es un usuario simple
+                      return User::isUserEstudiante(Yii::$app->user->identity->username);
+                  },
+               ],
             ],
-        ];
+        ],
+ //Controla el modo en que se accede a las acciones, en este ejemplo a la acción logout
+ //sólo se puede acceder a través del método post
+        'verbs' => [
+            'class' => VerbFilter::className(),
+            'actions' => [
+                'logout' => ['post'],
+            ],
+        ],
+    ];
+
     }
 
     public function actions()
@@ -47,6 +91,19 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionAdmin()
+    {
+        return $this->render('admin');
+    }
+    public function actionEstudiante()
+    {
+        return $this->render('estudiante');
+    } 
+    public function actionMaestro()
+    {
+        return $this->render('maestro');
+    }
+
     public function actionIndex()
     {
         return $this->render('index');
@@ -54,17 +111,42 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+    if (!\Yii::$app->user->isGuest) {
+ if (User::isUserAdmin(Yii::$app->user->identity->username))
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+{
+ return $this->redirect(["site/admin"]);
+}
+elseif(User::isUserMaestro(Yii::$app->user->identity->username))
+{
+ return $this->redirect(["site/maestro"]);
+}
+else
+{
+ return $this->redirect(["site/estudiante"]);
+}
+     }
+     $model = new LoginForm();
+     if ($model->load(Yii::$app->request->post()) && $model->login()) {
+ if (User::isUserAdmin(Yii::$app->user->identity->username))
+
+{
+ return $this->redirect(["site/admin"]);
+}
+elseif(User::isUserMaestro(Yii::$app->user->identity->username))
+{
+ return $this->redirect(["site/maestro"]);
+}
+else
+{
+ return $this->redirect(["site/estudiante"]);
+}
+     } else {
+         return $this->render('login', [
+             'model' => $model,
+         ]);
+     }
+
     }
 
     public function actionLogout()
