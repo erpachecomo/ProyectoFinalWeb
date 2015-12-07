@@ -33,11 +33,8 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-<<<<<<< HEAD
-        'brandLabel' => 'TuPortalPersonal',
-=======
+
         'brandLabel' => 'Tu Portal Personal',
->>>>>>> 1821e491707b8d2e60e20b424248c1906340ed34
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -47,7 +44,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Inicio', 'url' => ['/site/index']],
-<<<<<<< HEAD
+
             ['label' => 'Acerca de...', 'url' => ['/site/about']],
             ['label' => 'Contacto', 'url' => ['/site/contact']],
             ['label' => 'Tareas', 'url' => ['/site/contact']],
@@ -55,14 +52,6 @@ AppAsset::register($this);
                 ['label' => 'Acceso', 'url' => ['/site/login']] :
                 [
                     'label' => 'Salir(' . Yii::$app->user->identity->username . ')',
-=======
-            ['label' => 'Acerca de ', 'url' => ['/site/about']],
-            ['label' => 'Contacto', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ?
-                ['label' => 'Iniciar sesión', 'url' => ['/site/login']] :
-                [
-                    'label' => 'Salir (' . Yii::$app->user->identity->username . ')',
->>>>>>> 1821e491707b8d2e60e20b424248c1906340ed34
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ],
