@@ -30,6 +30,11 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 
+<div class="clima">
+<h7>Clima en Tepic</h7>
+<div id="TT_vujwLxdhYfdcA9IA3AujjjDDDWuA1dCFrYkY1cCoa1z"><a href="http://www.tutiempo.net">El clima en Tepic - Tu Portal Personal</a></div>
+</div>
+
 <div class="wrap">
     <?php
     NavBar::begin([
@@ -67,8 +72,11 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-<div id="TT_vujwLxdhYfdcA9IA3AujjjDDDWuA1dCFrYkY1cCoa1z"><a href="http://www.tutiempo.net">El clima en Tepic - Tu Portal Personal</a></div>
+
+
+
 <script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vujwLxdhYfdcA9IA3AujjjDDDWuA1dCFrYkY1cCoa1z"></script>
+
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
