@@ -20,12 +20,12 @@ $this->title = 'TuPortalPersonal';
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Descripción</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Este administrador de tareas permitira al usuario  ver un catalogo de tipos de
+                 actividades y un catalogo de personal, tambien podra crear tareas que posteriormente podra asignar 
+                  a una o mas personas. cada una de las tareas tendra una fecha inicio y una fecha de termino. Ademas el 
+                  usuario podra consultar las tareas asignadas y el clima en la ciudad actual.</p>
 
                 <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
             </div>
