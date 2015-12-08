@@ -15,6 +15,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $accessToken;
     public $role;
 
+    /*
     private static $users = [
         'admin' => [
             'username' => 'admin',
@@ -38,26 +39,26 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             'role' => 'maestro',
         ],
     ];
-
-    public static function isUserAdmin($username)
+*/
+    public static function isUserAdmin($id)
 {
-   if (Users::findOne(['username' => $username, 'activate' => '1', 'role' => 'admin'])){
+   if (Users::findOne(['id' => $id, 'activate' => '1', 'role' => 'admin'])){
     return true;
    } else {
     return false;
    }
 }
-    public static function isUserEstudiante($username)
+    public static function isUserEstudiante($id)
 {
-   if (Users::findOne(['username' => $username, 'activate' => '1', 'role' => 'estudiante'])){
+   if (Users::findOne(['id' => $id, 'activate' => '1', 'role' => 'estudiante'])){
     return true;
    } else {
     return false;
    }
 }
-    public static function isUserMaestro($username)
+    public static function isUserMaestro($id)
 {
-   if (Users::findOne(['username' => $username, 'activate' => '1', 'role' => 'maestro'])){
+   if (Users::findOne(['id' => $id, 'activate' => '1', 'role' => 'maestro'])){
     return true;
    } else {
     return false;
@@ -68,11 +69,11 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      * @inheritdoc
      */
 
-    public static function findIdentity($username)
+    public static function findIdentity($id)
     {
         $user = Users::find()
                 ->where("activate=:activate", [":activate" => 1])
-                ->andWhere("username=:username", ["username" => $username])
+                ->andWhere("id=:id", ["id" => $id])
                 ->one();
         return isset($user) ? new static($user) : null;
     }
@@ -104,7 +105,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public static function findByUsername($username)
     {
         $users = Users::find()
-                ->where("activate=:activate", ["activate" => 1])
+                ->where("activate=:activate", [":activate" => 1])
                 ->andWhere("username=:username", [":username" => $username])
                 ->all();
         foreach ($users as $user) {
