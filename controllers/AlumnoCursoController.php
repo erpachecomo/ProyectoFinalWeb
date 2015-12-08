@@ -44,13 +44,13 @@ class AlumnoCursoController extends Controller
     /**
      * Displays a single AlumnoCurso model.
      * @param integer $Curso_idCurso
-     * @param string $Usuarios_nombreUsuario
+     * @param integer $Usuarios_Usuario
      * @return mixed
      */
-    public function actionView($Curso_idCurso, $Usuarios_nombreUsuario)
+    public function actionView($Curso_idCurso, $Usuarios_Usuario)
     {
         return $this->render('view', [
-            'model' => $this->findModel($Curso_idCurso, $Usuarios_nombreUsuario),
+            'model' => $this->findModel($Curso_idCurso, $Usuarios_Usuario),
         ]);
     }
 
@@ -64,7 +64,7 @@ class AlumnoCursoController extends Controller
         $model = new AlumnoCurso();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'Curso_idCurso' => $model->Curso_idCurso, 'Usuarios_nombreUsuario' => $model->Usuarios_nombreUsuario]);
+            return $this->redirect(['view', 'Curso_idCurso' => $model->Curso_idCurso, 'Usuarios_Usuario' => $model->Usuarios_Usuario]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -76,15 +76,15 @@ class AlumnoCursoController extends Controller
      * Updates an existing AlumnoCurso model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $Curso_idCurso
-     * @param string $Usuarios_nombreUsuario
+     * @param integer $Usuarios_Usuario
      * @return mixed
      */
-    public function actionUpdate($Curso_idCurso, $Usuarios_nombreUsuario)
+    public function actionUpdate($Curso_idCurso, $Usuarios_Usuario)
     {
-        $model = $this->findModel($Curso_idCurso, $Usuarios_nombreUsuario);
+        $model = $this->findModel($Curso_idCurso, $Usuarios_Usuario);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'Curso_idCurso' => $model->Curso_idCurso, 'Usuarios_nombreUsuario' => $model->Usuarios_nombreUsuario]);
+            return $this->redirect(['view', 'Curso_idCurso' => $model->Curso_idCurso, 'Usuarios_Usuario' => $model->Usuarios_Usuario]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -96,12 +96,12 @@ class AlumnoCursoController extends Controller
      * Deletes an existing AlumnoCurso model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $Curso_idCurso
-     * @param string $Usuarios_nombreUsuario
+     * @param integer $Usuarios_Usuario
      * @return mixed
      */
-    public function actionDelete($Curso_idCurso, $Usuarios_nombreUsuario)
+    public function actionDelete($Curso_idCurso, $Usuarios_Usuario)
     {
-        $this->findModel($Curso_idCurso, $Usuarios_nombreUsuario)->delete();
+        $this->findModel($Curso_idCurso, $Usuarios_Usuario)->delete();
 
         return $this->redirect(['index']);
     }
@@ -110,13 +110,13 @@ class AlumnoCursoController extends Controller
      * Finds the AlumnoCurso model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $Curso_idCurso
-     * @param string $Usuarios_nombreUsuario
+     * @param integer $Usuarios_Usuario
      * @return AlumnoCurso the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($Curso_idCurso, $Usuarios_nombreUsuario)
+    protected function findModel($Curso_idCurso, $Usuarios_Usuario)
     {
-        if (($model = AlumnoCurso::findOne(['Curso_idCurso' => $Curso_idCurso, 'Usuarios_nombreUsuario' => $Usuarios_nombreUsuario])) !== null) {
+        if (($model = AlumnoCurso::findOne(['Curso_idCurso' => $Curso_idCurso, 'Usuarios_Usuario' => $Usuarios_Usuario])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

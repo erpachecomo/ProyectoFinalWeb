@@ -18,8 +18,7 @@ class ImparteCursoSearch extends ImparteCurso
     public function rules()
     {
         return [
-            [['Curso_idCurso'], 'integer'],
-            [['Usuarios_Usuario'], 'safe'],
+            [['Curso_idCurso', 'Usuarios_Usuario'], 'integer'],
         ];
     }
 
@@ -57,9 +56,8 @@ class ImparteCursoSearch extends ImparteCurso
 
         $query->andFilterWhere([
             'Curso_idCurso' => $this->Curso_idCurso,
+            'Usuarios_Usuario' => $this->Usuarios_Usuario,
         ]);
-
-        $query->andFilterWhere(['like', 'Usuarios_Usuario', $this->Usuarios_Usuario]);
 
         return $dataProvider;
     }
