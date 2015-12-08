@@ -51,13 +51,14 @@ AppAsset::register($this);
             ['label' => 'Inicio', 'url' => ['/site/index']],
 
             ['label' => 'Acerca de...', 'url' => ['/site/about']],
-            ['label' => 'Usuarios', 'url' => ['/usuario/index']],
-            ['label' => 'Alumnos', 'url' => ['/alumno-curso/index']],
-            ['label' => 'Cursos Actuales', 'url' => ['/imparte-curso/index']],
-            ['label' => 'Cursos', 'url' => ['/curso/index']],
-            ['label' => 'Tareas', 'url' => ['/tareas/index']],
+            //['label' => 'Usuarios', 'url' => ['/usuario/index']],
+          //  ['label' => 'Alumnos', 'url' => ['/alumno-curso/index']],
+            //['label' => 'Cursos Actuales', 'url' => ['/imparte-curso/index']],
+          //  ['label' => 'Cursos', 'url' => ['/curso/index']],
+            //['label' => 'Tareas', 'url' => ['/tareas/index']],
             Yii::$app->user->isGuest ?
-                ['label' => 'Acceso', 'url' => ['/site/login']] :
+
+                ['label' => 'Acceso', 'url' => ['/site/login']]:
                 [
                     'label' => 'Salir(' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
