@@ -12,17 +12,23 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'nombreUsuario')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'correo')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'apellidos')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'lastname')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'tipo')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'role')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'contrasena')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'authKey')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'activate')->textInput() ?>
+
+    <?= $form->field($model, 'accessToken')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
