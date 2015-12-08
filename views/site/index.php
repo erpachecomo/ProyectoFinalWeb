@@ -28,7 +28,7 @@ $this->title = 'TuPortalPersonal';
                   a una o mas personas. cada una de las tareas tendra una fecha inicio y una fecha de termino. Ademas el 
                   usuario podra consultar las tareas asignadas y el clima en la ciudad actual.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+               
             </div>
             
             
