@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Accesar';
+$this->title = 'Acceso';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
