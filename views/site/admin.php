@@ -10,15 +10,14 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-admin">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    
-  
-    <ul>
-    		
+    <ul>    		
     </ul>
+
     <br>
 
+    <p>
     <div class="boton-tareas">
-    <p><a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=site%2Flogin">Tareas</a>
+    <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=site%2Flogin">Tareas</a>
     </div>
 
     <div class="boton-curso">
@@ -32,8 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="boton-Alumno">
     <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=site%2Flogin">Alumno Curso</a>
     </div>
-    
     </p>
+    
+    
    
 
 </div>
