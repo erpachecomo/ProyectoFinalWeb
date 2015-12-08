@@ -22,7 +22,7 @@ class SiteController extends Controller
             'rules' => [
                 [
                     //El administrador tiene permisos sobre las siguientes acciones
-                    'actions' => ['logout', 'admin','tareas','curso','alumno','imparte'],
+                    'actions' => ['logout', 'admin','tareas','curso','alumno','imparte','usuario'],
                     //Esta propiedad establece que tiene permisos
                     'allow' => true,
                     //Usuarios autenticados, el signo ? es para invitados
@@ -94,6 +94,10 @@ class SiteController extends Controller
     public function actionAdmin()
     {
         return $this->render('admin');
+    }
+    public function actionUsuario()
+    {
+        return $this->render('usuario');
     }
 
      public function actionTareas()

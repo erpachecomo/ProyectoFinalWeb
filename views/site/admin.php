@@ -17,15 +17,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <br>
     <p>
 
-    <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=tareas/index">Tareas</a>
+    <a class="btn btn-lg btn-primary" href="http://tuportalpersonal.ueuo.com/web/index.php?r=tareas/index">Tareas</a>
      
-    <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=curso/index">Cursos</a>
+    <a class="btn btn-lg btn-primary" href="http://tuportalpersonal.ueuo.com/web/index.php?r=curso/index">Cursos</a>
     
-    <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=imparte-curso/index">Imparte Cursos</a>
+    <a class="btn btn-lg btn-primary" href="http://tuportalpersonal.ueuo.com/web/index.php?r=imparte-curso/index">Imparte Cursos</a>
    
-    <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=alumno-curso/index">Alumno Cursos</a>
+    <a class="btn btn-lg btn-primary" href="http://tuportalpersonal.ueuo.com/web/index.php?r=alumno-curso/index">Alumno Cursos</a>
 
-    <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=usuario/index">Usuarios</a>
+    <a class="btn btn-lg btn-primary" href="http://tuportalpersonal.ueuo.com/web/index.php?r=usuario/index">Usuarios</a>
     
     </p>
     

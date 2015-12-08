@@ -14,7 +14,7 @@ $this->title = 'TuPortalPersonal';
 
         <p class="lead">Plataforma para control de tareas escolares.</p>
 
-        <p><a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=site%2Flogin">Iniciar sesión</a></p>
+        <p><a class="btn btn-lg btn-primary" href="http://tuportalpersonal.ueuo.com/web/index.php?r=site%2Flogin">Iniciar sesión</a></p>
     </div>
 
     <div class="body-content">

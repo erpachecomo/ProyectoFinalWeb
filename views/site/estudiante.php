@@ -12,9 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <br>
-    <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=curso/index">Ver Cursos</a>
+    <a class="btn btn-lg btn-primary" href="http://tuportalpersonal.ueuo.com/web/index.php?r=curso/index">Ver Cursos</a>
     
-    <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=tareas/index">Tareas</a>
+    <a class="btn btn-lg btn-primary" href="http://tuportalpersonal.ueuo.com/web/index.php?r=tareas/index">Tareas</a>
     
 
     <ul>
