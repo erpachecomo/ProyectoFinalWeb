@@ -13,7 +13,7 @@ $this->title = 'TuPortalPersonal';
 
         
 
-        <p><a class="btn btn-lg btn-success" href="">Iniciar sesión</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://localhost/index.php?r=site%2Flogin">Iniciar sesión</a></p>
     </div>
 
     <div class="body-content">

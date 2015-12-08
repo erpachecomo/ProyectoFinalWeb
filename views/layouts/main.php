@@ -51,8 +51,11 @@ AppAsset::register($this);
             ['label' => 'Inicio', 'url' => ['/site/index']],
 
             ['label' => 'Acerca de...', 'url' => ['/site/about']],
-            ['label' => 'Contacto', 'url' => ['/site/contact']],
-            ['label' => 'Tareas', 'url' => ['/site/contact']],
+            ['label' => 'Usuarios', 'url' => ['/usuario/index']],
+            ['label' => 'Alumnos', 'url' => ['/alumno-curso/index']],
+            ['label' => 'Cursos Actuales', 'url' => ['/imparte-curso/index']],
+            ['label' => 'Cursos', 'url' => ['/curso/index']],
+            ['label' => 'Tareas', 'url' => ['/tareas/index']],
             Yii::$app->user->isGuest ?
                 ['label' => 'Acceso', 'url' => ['/site/login']] :
                 [

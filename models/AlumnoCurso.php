@@ -8,9 +8,9 @@ use Yii;
  * This is the model class for table "AlumnoCurso".
  *
  * @property integer $Curso_idCurso
- * @property string $Usuarios_nombreUsuario
+ * @property integer $Usuarios_Usuario
  *
- * @property Usuario $usuariosNombreUsuario
+ * @property Usuario $usuariosUsuario
  * @property Curso $cursoIdCurso
  */
 class AlumnoCurso extends \yii\db\ActiveRecord
@@ -29,9 +29,8 @@ class AlumnoCurso extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Curso_idCurso', 'Usuarios_nombreUsuario'], 'required'],
-            [['Curso_idCurso'], 'integer'],
-            [['Usuarios_nombreUsuario'], 'string', 'max' => 45]
+            [['Curso_idCurso', 'Usuarios_Usuario'], 'required'],
+            [['Curso_idCurso', 'Usuarios_Usuario'], 'integer']
         ];
     }
 
@@ -42,16 +41,16 @@ class AlumnoCurso extends \yii\db\ActiveRecord
     {
         return [
             'Curso_idCurso' => 'Curso Id Curso',
-            'Usuarios_nombreUsuario' => 'Usuarios Nombre Usuario',
+            'Usuarios_Usuario' => 'Usuarios  Usuario',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUsuariosNombreUsuario()
+    public function getUsuariosUsuario()
     {
-        return $this->hasOne(Usuario::className(), ['nombreUsuario' => 'Usuarios_nombreUsuario']);
+        return $this->hasOne(Usuario::className(), ['id' => 'Usuarios_Usuario']);
     }
 
     /**
