@@ -31,7 +31,7 @@ class SiteController extends Controller
                     //y así establecer si tiene permisos o n
                     'matchCallback' => function ($rule, $action) {
                         //Llamada al método que comprueba si es un administrador
-                        return User::isUserAdmin(Yii::$app->user->identity->username);
+                        return User::isUserAdmin(Yii::$app->user->identity->id);
                     },
                 ],
 
@@ -46,7 +46,7 @@ class SiteController extends Controller
                     //y así establecer si tiene permisos o n
                     'matchCallback' => function ($rule, $action) {
                         //Llamada al método que comprueba si es un administrador
-                        return User::isUserMaestro(Yii::$app->user->identity->username);
+                        return User::isUserMaestro(Yii::$app->user->identity->id);
                     },
                 ],
 
@@ -61,7 +61,7 @@ class SiteController extends Controller
                    //y así establecer si tiene permisos o no
                    'matchCallback' => function ($rule, $action) {
                       //Llamada al método que comprueba si es un usuario simple
-                      return User::isUserEstudiante(Yii::$app->user->identity->username);
+                      return User::isUserEstudiante(Yii::$app->user->identity->id);
                   },
                ],
             ],
@@ -112,36 +112,43 @@ class SiteController extends Controller
     public function actionLogin()
     {
     if (!\Yii::$app->user->isGuest) {
- if (User::isUserAdmin(Yii::$app->user->identity->username))
+if (User::isUserAdmin(Yii::$app->user->identity->id))
 
 {
+ echo "<script>console.log('tu mama admin algo');</script>";
  return $this->redirect(["site/admin"]);
 }
-elseif(User::isUserMaestro(Yii::$app->user->identity->username))
+elseif(User::isUserMaestro(Yii::$app->user->identity->id))
 {
+ echo "<script>console.log('tu mama maestro algo');</script>";
  return $this->redirect(["site/maestro"]);
 }
 else
 {
+    echo "<script>console.log('tu mama estudiante algo');</script>";
  return $this->redirect(["site/estudiante"]);
 }
      }
      $model = new LoginForm();
      if ($model->load(Yii::$app->request->post()) && $model->login()) {
- if (User::isUserAdmin(Yii::$app->user->identity->username))
+ if (User::isUserAdmin(Yii::$app->user->identity->id))
 
 {
+ echo "<script>console.log('tu mama admin');</script>";
  return $this->redirect(["site/admin"]);
 }
-elseif(User::isUserMaestro(Yii::$app->user->identity->username))
+elseif(User::isUserMaestro(Yii::$app->user->identity->id))
 {
+ echo "<script>console.log('tu mama maestro');</script>";
  return $this->redirect(["site/maestro"]);
 }
 else
 {
+    echo "<script>console.log('tu mama estudiante');</script>";
  return $this->redirect(["site/estudiante"]);
 }
      } else {
+        echo "<script>console.log('tu mama');</script>";
          return $this->render('login', [
              'model' => $model,
          ]);
