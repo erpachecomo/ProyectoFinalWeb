@@ -12,9 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <ul>    		
     </ul>
-
+ 	<img src="http://es.downloadicons.net/sites/default/files/icono-de-administrador-de-24881.png">
     <br>
-
+    <br>
     <p>
 
     <a class="btn btn-lg btn-primary" href="http://localhost/index.php?r=tareas/index">Tareas</a>
