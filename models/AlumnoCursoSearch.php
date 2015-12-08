@@ -19,7 +19,7 @@ class AlumnoCursoSearch extends AlumnoCurso
     {
         return [
             [['Curso_idCurso'], 'integer'],
-            [['Usuarios_nombreUsuario'], 'safe'],
+            [['Usuarios_Usuario'], 'safe'],
         ];
     }
 
@@ -59,7 +59,7 @@ class AlumnoCursoSearch extends AlumnoCurso
             'Curso_idCurso' => $this->Curso_idCurso,
         ]);
 
-        $query->andFilterWhere(['like', 'Usuarios_nombreUsuario', $this->Usuarios_nombreUsuario]);
+        $query->andFilterWhere(['like', 'Usuarios_Usuario', $this->Usuarios_Usuario]);
 
         return $dataProvider;
     }

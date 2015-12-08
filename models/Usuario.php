@@ -7,16 +7,20 @@ use Yii;
 /**
  * This is the model class for table "Usuario".
  *
- * @property string $nombreUsuario
- * @property string $correo
- * @property string $nombre
- * @property string $apellidos
- * @property string $tipo
- * @property string $contrasena
+ * @property integer $id
+ * @property string $username
+ * @property string $email
+ * @property string $name
+ * @property string $lastname
+ * @property string $role
+ * @property string $password
+ * @property string $authKey
+ * @property integer $activate
+ * @property string $accessToken
  *
  * @property AlumnoCurso[] $alumnoCursos
- * @property Curso[] $cursoIdCursos
  * @property ImparteCurso[] $imparteCursos
+ * @property Curso[] $cursoIdCursos
  */
 class Usuario extends \yii\db\ActiveRecord
 {
@@ -34,8 +38,10 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombreUsuario', 'correo', 'tipo', 'contrasena'], 'required'],
-            [['nombreUsuario', 'correo', 'nombre', 'apellidos', 'tipo', 'contrasena'], 'string', 'max' => 45]
+            [['username', 'email', 'role', 'password'], 'required'],
+            [['activate'], 'integer'],
+            [['username', 'email', 'name', 'lastname', 'role', 'password'], 'string', 'max' => 45],
+            [['authKey', 'accessToken'], 'string', 'max' => 250]
         ];
     }
 
@@ -45,12 +51,16 @@ class Usuario extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'nombreUsuario' => 'Nombre Usuario',
-            'correo' => 'Correo',
-            'nombre' => 'Nombre',
-            'apellidos' => 'Apellidos',
-            'tipo' => 'Tipo',
-            'contrasena' => 'Contrasena',
+            'id' => 'ID',
+            'username' => 'Username',
+            'email' => 'Email',
+            'name' => 'Name',
+            'lastname' => 'Lastname',
+            'role' => 'Role',
+            'password' => 'Password',
+            'authKey' => 'Auth Key',
+            'activate' => 'Activate',
+            'accessToken' => 'Access Token',
         ];
     }
 
@@ -59,15 +69,7 @@ class Usuario extends \yii\db\ActiveRecord
      */
     public function getAlumnoCursos()
     {
-        return $this->hasMany(AlumnoCurso::className(), ['Usuarios_nombreUsuario' => 'nombreUsuario']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCursoIdCursos()
-    {
-        return $this->hasMany(Curso::className(), ['idCurso' => 'Curso_idCurso'])->viaTable('AlumnoCurso', ['Usuarios_nombreUsuario' => 'nombreUsuario']);
+        return $this->hasMany(AlumnoCurso::className(), ['Usuarios_Usuario' => 'id']);
     }
 
     /**
@@ -75,6 +77,14 @@ class Usuario extends \yii\db\ActiveRecord
      */
     public function getImparteCursos()
     {
-        return $this->hasMany(ImparteCurso::className(), ['Usuarios_nombreUsuario' => 'nombreUsuario']);
+        return $this->hasMany(ImparteCurso::className(), ['Usuarios_Usuario' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCursoIdCursos()
+    {
+        return $this->hasMany(Curso::className(), ['idCurso' => 'Curso_idCurso'])->viaTable('ImparteCurso', ['Usuarios_Usuario' => 'id']);
     }
 }

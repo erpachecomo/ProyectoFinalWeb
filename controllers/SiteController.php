@@ -95,6 +95,7 @@ class SiteController extends Controller
     {
         return $this->render('admin');
     }
+    
     public function actionEstudiante()
     {
         return $this->render('estudiante');
@@ -115,17 +116,14 @@ class SiteController extends Controller
 if (User::isUserAdmin(Yii::$app->user->identity->id))
 
 {
- echo "<script>console.log('tu mama admin algo');</script>";
  return $this->redirect(["site/admin"]);
 }
 elseif(User::isUserMaestro(Yii::$app->user->identity->id))
 {
- echo "<script>console.log('tu mama maestro algo');</script>";
  return $this->redirect(["site/maestro"]);
 }
 else
 {
-    echo "<script>console.log('tu mama estudiante algo');</script>";
  return $this->redirect(["site/estudiante"]);
 }
      }
@@ -134,21 +132,18 @@ else
  if (User::isUserAdmin(Yii::$app->user->identity->id))
 
 {
- echo "<script>console.log('tu mama admin');</script>";
  return $this->redirect(["site/admin"]);
 }
 elseif(User::isUserMaestro(Yii::$app->user->identity->id))
 {
- echo "<script>console.log('tu mama maestro');</script>";
  return $this->redirect(["site/maestro"]);
 }
 else
 {
-    echo "<script>console.log('tu mama estudiante');</script>";
+
  return $this->redirect(["site/estudiante"]);
 }
      } else {
-        echo "<script>console.log('tu mama');</script>";
          return $this->render('login', [
              'model' => $model,
          ]);
