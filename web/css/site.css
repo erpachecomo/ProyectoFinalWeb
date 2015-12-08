@@ -1,7 +1,7 @@
 html,
 body {
     height: 100%;
-    background-color:beige; 
+    background-color: LightBlue; 
 }
 
 .wrap {
@@ -101,3 +101,10 @@ float: right;
 margin-top: 50px; 
 font-weight: bold; 
 }
+.breadcrumb{
+
+   background-color: Lavender;
+    width: 800px;
+}
+
+
