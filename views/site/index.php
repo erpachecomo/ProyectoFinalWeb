@@ -9,6 +9,7 @@ $this->title = 'TuPortalPersonal';
 
     <div class="jumbotron">
         <h1>¡Bienvenido!</h1>
+
         <img src="https://raw.githubusercontent.com/erpachecomo/TuPortalPersonal/9b9cc41c28c25e8f77babcd10038921d4f1baa71/imagenes/logo500.png">
 
         <p class="lead">Plataforma para control de tareas escolares.</p>
